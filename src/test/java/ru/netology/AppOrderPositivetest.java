@@ -28,6 +28,7 @@ public class AppOrderPositivetest {
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
+        driver.get("http://localhost:9999");
     }
 
 
@@ -43,7 +44,7 @@ public class AppOrderPositivetest {
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+78005553535");
         driver.findElement(By.cssSelector("[data-test-id=argument]")).click();
         driver.findElement(By.cssSelector("[button.button]")).click();
-        var actualText = driver.findElement(By.cssSelector("data-test-id-success]")).getText().trim();
-        assertEquals("Ваша заяавка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
+        assertEquals("Ваша заяавка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", driver);
+        driver.findElement(By.cssSelector("data-test-id-success]")).getText().trim();
     }
 }

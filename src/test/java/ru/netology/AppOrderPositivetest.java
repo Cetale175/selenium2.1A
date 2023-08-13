@@ -42,9 +42,9 @@ public class AppOrderPositivetest {
     public void shouldBeSuccessfulForm(){
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иваныч-Ивановичев Иван");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+78005553535");
-        driver.findElement(By.cssSelector("[data-test-id=argument]")).click();
+        driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector("[button.button]")).click();
-        assertEquals("Ваша заяавка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", driver);
-        driver.findElement(By.cssSelector("data-test-id-success]")).getText().trim();
+        var actualText = driver.findElement(By.cssSelector("data-test-id-success]")).getText().trim();
+        assertEquals("Ваша завка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
     }
 }
